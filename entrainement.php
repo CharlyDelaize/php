@@ -423,79 +423,136 @@ echo '</select>';
 echo '<br>';
 // --------------
 // Exercice : faites une boucle qui affiche de 0 à 9 sur la meme ligne dans un tableau
-
-echo '<table border=1><tr>';
+echo '<hr><h2>Boucle imbriquée - Méthode 1</h2>';
+echo '<table border="1"><tr>';
 for($l=0; $l <= 9; $l++)
 {
     echo "<td>$l</td>";
 }
 echo '</tr></table><br>';
 // Exercice : faites la meme chose en allant de 0 à 99 sur plusieurs lignes sans faire 10 boucles
-
-echo '<table border=1>';
-    for($m=1 ; $m <= 1; $m++){
-
-        echo "<tr>";
-        for($o=0; $o <= 9; $o++){
-            echo "<td>";
-            echo $o;
-            echo "</td>";
-        }
-        echo "</tr>";
-        for($o=10; $o <= 19; $o++){
-            echo "<td>";
-            echo $o;
-            echo "</td>";
-        }
-        echo "</tr>";
-        for($o=20; $o <= 29; $o++){
-            echo "<td>";
-            echo $o;
-            echo "</td>";
-        }
-        echo "</tr>";
-        for($o=30; $o <= 39; $o++){
-            echo "<td>";
-            echo $o;
-            echo "</td>";
-        }
-        echo "</tr>";
-        for($o=40; $o <= 49; $o++){
-            echo "<td>";
-            echo $o;
-            echo "</td>";
-        }
-        echo "</tr>";
-        for($o=50; $o <= 59; $o++){
-            echo "<td>";
-            echo $o;
-            echo "</td>";
-        }
-        echo "</tr>";
-        for($o=60; $o <= 69; $o++){
-            echo "<td>";
-            echo $o;
-            echo "</td>";
-        }
-        echo "</tr>";
-        for($o=70; $o <= 79; $o++){
-            echo "<td>";
-            echo $o;
-            echo "</td>";
-        }
-        echo "</tr>";
-        for($o=80; $o <= 89; $o++){
-            echo "<td>";
-            echo $o;
-            echo "</td>";
-        }
-        echo "</tr>";
-        for($o=90; $o <= 99; $o++){
-            echo "<td>";
-            echo $o;
-            echo "</td>";
-        }
+echo '<table border="1">';
+for($ligne = 0; $ligne < 10; $ligne++)
+{
+    print "<tr>";
+    for($cellule = 0; $cellule < 10; $cellule++)
+    {
+        print "<td>". (10 * $ligne + $cellule) . "</td>"; //10 * 0 + 0, 10 * 0 + 1, 10 * 0 + 2 ....... 10 * 9 + 9 fin des boucles car la suite ne valide pas la condition <10 pour les cellules et les lignes
     }
+    print "</tr>";
+}
+echo "</table>";
+//--------------
+echo '<hr><h2>Boucle imbriquée - Méthode 2</h2>';
+echo '<table border = "1">';
+$i=0;
+while($i <= 99)
+{
+    echo '<tr>';
+    for($k = 0; $k <= 9; $k++)
+    {
+        echo "<td>$i</td>";
+        $i++;
+    }
+    echo '</tr>';
+}
 echo '</table>';
+//--------------
+echo '<hr><h2>Inclusion de fichiers</h2>';
+echo "Première fois: ";
+include("exemple.inc.php");
+echo '<br>';
+echo "Deuxième fois: ";
+include_once("exemple.inc.php");
+echo '<br>';
+echo "Troisième fois: ";
+require("exemple.inc.php");
+echo '<br>';
+echo "Quatrième fois: ";
+require_once("exemple.inc.php");
+/* La différence entre un "include()" et "include_once()" c'est que le premier peut faire autant d'inclusion demandé et que l'autre inclut qu'une seule fois.
+Pareil pour le "require()" et le "require_once()".
+Il n'y a aucune différence entre include et require, sauf en cas d'erreur sur le nom du fichier.
+- Include fait une erreur et continue l'éxécution du code.
+- Le require fait une erreur et stoppe l'éxécution du code.
+*/
+//--------------
+echo '<hr><h2>Tableau de données ARRAY</h2>';
+$liste = array("Niamatullah", "David", "Ornella", "Charly", "Sara", "Amine");
+echo "<br>print_r: ";
+print_r($liste); // print_r() affiche le contenu du tableau
+print "<pre>"; print_r($liste); print "</pre>"; // <pre> est une balise html permettant de formater le text; cela nous permet de mettre en forme la sortie du print_r
 
-?>
+echo "<br>var_dumb : ";
+print "<pre>"; var_dump($liste); print "</pre>"; // var_dump() affiche le contenu du tableau plus certaines informations comme le type de variables...
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+echo '<hr><h2>Boucle Foreach pour les tableaux de données Array</h2>';
+$tab[] = "France"; // autre moyen d'affecter une valeur dans un tableau. Le mot clé Array est remplacé par.
+$tab[] = "Italie"; 
+$tab[] = "Espagne";
+$tab[] = "Angleterre";
+$tab[] = "Suisse";
+$tab[] = "Portugal";
+print "<pre>"; print_r($tab); print "</pre>";
+// Exercice : tentez de m'afficher Angleterre en passant par le tableau
+echo $tab[3] . '<br><br>';
+
+// Exercice : afficher successivement des éléments du tableau
+foreach($tab as $element)
+{
+    echo $element . "<br>";
+}
+// Récuperer les indices et les valeurs en les affichant sous cette forme : indice-valeur
+foreach($tab as $indice => $valeur) // Quand il y a 2 variables. la 1ère parcours la colonne des indices et la 2ème la colonne des valeurs
+{
+    echo $indice . '-' . $valeur . "<br>";
+}
+
+//----------------------------------------
+$couleur = array("j" => "jaune", "b" => "bleu", "v" => "vert"); //on peut choisir nos indices, ici, "j", "b", "v"
+print "<pre>"; print_r($couleur); print "</pre>";
+echo 'taille du tableau: '. sizeof($couleur) . '<br>'; // affiche 3
+echo 'taille du tableau: '. count($couleur) . '<br>'; // count est pareil que sizeof sauf qu'il renvoie la taille du tableau, pas de différences.
+
+print implode("-", $couleur) . '<br>'; // Implode() est une fonction prédéfinie qui rassemble les éléments d'un tableau en une chaine (séparé par un symbole).
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+echo '<hr><h2>Tableau Multidimensionnel</h2>';
+// Nous parlons de tableau multidimensionnel quand un tableau est contenu dans un autre tableau.
+$tab_multi = array(0 => array("prenom" => "Muhammet", "nom" => "Karahan"), 1 => array("prenom" => "Jordan", "nom" => "Moutawakil"), 2 => array("prenom" => "Jérémy", "nom" => "Rocard"));
+print "<pre>"; print_r($tab_multi); print "</pre>";
+// Exercice : afficher Jordan en passant par le tableau
+echo $tab_multi[1]['prenom'] . '<br>' . '<br>';
+
+
+for($i = 0; $i < sizeof($tab_multi) ; $i++) // tant que $i est inférieur au nombre d'éléments du tableau (et non <=) car il y a 3 éléments dans le tableau et nous voulons faire 0, 1, 2 soit 3 tours
+{
+    print $tab_multi[$i]['prenom'] . '<br>'; // on affiche l'élément du tableau d'indice $i
+}
+//-----------------------------------------------------------------------------------------
+echo '<hr><h2>Objets</h2>';
+// Un objet est un autre type de données. Un peu comme un Array, il permet de regrouper des informations.
+// Cependant, cela va beaucoup plus loin car on peu y déclarer des variables (appelées : attributs ou propriétés) mais aussi des fonctions (appelés : méthodes)
+class Etudiant
+{
+    public $prenom = "Rachid"; // Permet de préciser que l'élément sera acessible partout dans le code. Il existe aussi protected et private.
+    public $age = 36;
+    public function pays()
+    {
+        return "France";
+    }
+}
+
+$objet = new Etudiant(); //new est mot clé permettant d'instancier la class et d'en faire un objet, c'est ce qui nous permet de le déployer afin que l'on puisse s'en servir, on se sert de ce qui est dans la class via l'objet !
+
+print "<pre>"; var_dump($objet); print "</pre>";
+echo $objet->prenom. '<br>'; // Nous pouvons acceder à un indice d'un tableau avec des [], mais dans un objet on accède aux propriétés et méthode avec "->"
+echo $objet->age. '<br>';
+echo $objet->pays(). '<br>'; // L'appel d'une méthode se fait toujours avec les ()
+//--------------------------------------------------------------------------------
+goto b; // On va au point "b"
+echo 'Bonjour'; // Cette ligne ne s'affiche et ne s'éxecute pas
+
+b: // On arrive au point "b"
+echo 'Hello'; // après le point "b" le code s'exécute normalement
+//phpinfo();
+
