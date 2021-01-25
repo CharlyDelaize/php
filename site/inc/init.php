@@ -9,11 +9,11 @@ session_start();
 
 // définition de constantes
 define("RACINE_SITE", $_SERVER['DOCUMENT_ROOT'] . '/site/');
-define("URL", 'http://localhost/PHPpoleS/site/');
+define("URL", 'http://localhost/php/php/site/');
 
 // déclaration de variable
 $content = '';
 
 //-----------------
 //inclusion des fichiers
-//require_once('fonction.php');
+require_once('fonction.php');
