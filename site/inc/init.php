@@ -8,8 +8,8 @@ $pdo = new PDO('mysql:host=localhost;dbname=boutique', 'root', '', array(PDO::AT
 session_start();
 
 // définition de constantes
-define("RACINE_SITE", $_SERVER['DOCUMENT_ROOT'] . '/site/');
-define("URL", 'http://localhost/php/php/site/');
+define("RACINE_SITE", $_SERVER['DOCUMENT_ROOT'] . 'php/site/');
+define("URL", 'http://localhost/php/php/php/site/');
 
 // déclaration de variable
 $content = '';

@@ -1,7 +1,7 @@
 <?php
 require_once('inc/init.php');
 
-if(isset($_GET['action'] && $_GET['action'] == 'deconnexion'))
+if(isset($_GET['action']) && $_GET['action'] == 'deconnexion')
 {
     unset($_SESSION['membre']);
 }
@@ -43,7 +43,7 @@ if($_POST)
 
 <?php require_once('inc/haut.php');?>
 
-<h1>Connection </h1>
+<h1>Connexion</h1>
 
 <form method="post" action="">
     <div>

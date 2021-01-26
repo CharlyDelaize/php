@@ -5,7 +5,7 @@ if(!internauteEstConnecte())
     exit();
 }
 
-if(internauteEstConnecteEtAdmis())
+if(internauteEstConnecteEtEstAdmin())
 {
     $content .= "<h1>Vous etes administrateur du site</h1>";
 }

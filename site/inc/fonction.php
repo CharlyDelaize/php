@@ -5,7 +5,7 @@ function debug($var, $mod = 1)
     $trace = debug_backtrace();
     $trace = array_shift($trace);echo("<strong>debug demandé dans le fichier : $trace[file] en ligne : $trace[line]</strong>");
 
-    if($mode == 1)
+    if($mod == 1)
     {
         echo '<pre>'; print_r($var); echo '</pre>';
     }
@@ -17,11 +17,11 @@ function debug($var, $mod = 1)
 
 function internauteEstConnecte()
 {
-    if(!isset($_SESSION['membre'])) return true;
+    if(isset($_SESSION['membre'])) return true;
     else return false;
 }
 
-function internauteEstConnecteEtAdmis()
+function internauteEstConnecteEtEstAdmin()
 {
     if(internauteEstConnecte() && $_SESSION['membre']['statut'] = 1) return true;
     else return false;
