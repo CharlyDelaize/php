@@ -132,7 +132,7 @@
         <input type="file" name="photo" id="photo" class="form-control">
         <?php if(!empty($photo)): ?>
 			<p>Vous pouvez uplaoder une nouvelle photo si vous souhaitez la changer.<br>
-			<img src="<?= $photo ?>" width="100"></p>
+			<img src="<?=$photo ?>" width="100"></p>
 		<?php	endif; 	?>
         <input type="hidden" name="photo_actuelle" value="<?= $photo?>" />
         <label for="prix">Prix</label>

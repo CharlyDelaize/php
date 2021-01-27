@@ -16,9 +16,9 @@
         $r = $pdo->query("SELECT * FROM produit WHERE categorie = '$_GET[categorie]'");
         while($produit = $r->fetch(PDO::FETCH_ASSOC))
             {
-                $content .= 'div class="col-sm-4 col-lg-4 col-md-4">
+                $content .= '<div class="col-sm-4 col-lg-4 col-md-4">
                     <div class="thumbnail">
-                        <a href""><img src=" ' . $produit['photo'] . '" alt = ""></a>
+                        <a href="fiche_produit.php?id_produit=' . $produit['id_produit'] . '"><img src=" ' . $produit['photo'] . '" alt = ""></a>
                         <div class="caption">
                             <a href=""></a>
                             <p>' . $produit['description'] . '<strong>' . $produit['prix'] . ' €</strong></p>
