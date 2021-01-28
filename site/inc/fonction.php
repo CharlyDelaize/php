@@ -65,7 +65,7 @@ function montantTotal()
     }
     return round($total, 2);
 }
-function retireProduitPanier($id_produit)
+function retireProduitPanier($id_produit_a_supprimer)
 {
     $position_produit = array_search($id_produit_a_supprimer, $_SESSION['panier']['id_produit']);
     if($position_produit !== false)

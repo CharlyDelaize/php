@@ -48,7 +48,7 @@
                 $colonne = $r->getColumnMeta($i);
                 $content .= "<td>$colonne[name]</td>";
             }
-            $content .= "<td>Modofication<td>";
+            $content .= "<td>Modification<td>";
             $content .= "<td>Suppression<td>";
             $content .= "</tr>";
 

@@ -20,8 +20,9 @@
                     <div class="thumbnail">
                         <a href="fiche_produit.php?id_produit=' . $produit['id_produit'] . '"><img src=" ' . $produit['photo'] . '" alt = ""></a>
                         <div class="caption">
-                            <a href=""></a>
+                            <a href="fiche_produit.php?id_produit=' . $produit['id_produit'] . '">
                             <p>' . $produit['description'] . '<strong>' . $produit['prix'] . ' €</strong></p>
+                            </a>
                         </div>
                     </div>
                 </div>';

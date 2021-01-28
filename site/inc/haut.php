@@ -14,7 +14,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container"> 
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"        data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -24,25 +24,25 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav"> 
-                    <li><a href="">Accueil</a></li>
+                    <li><a href="<?= URL ?>index.php">Accueil</a></li>
                     <?php if (internauteEstConnecteEtEstAdmin()): ?>
-                        <li><a href="">BackOffice</a></li>
+                        <li><a href="<?= URL ?>/admin/gestion_produit.php">BackOffice</a></li>
                     <?php endif; ?>
 
                     <?php if (internauteEstConnecte()): ?>
-                    <li><a href="">Panier</a></li>
+                    <li><a href="<?= URL ?>panier.php">Panier</a></li>
                     <li class="dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Membre <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Membre <span class="caret"></span></a>
                         <ul class="dropdown-menu navbar-right">
-                            <li><a href="">Profil</a>
-                            <li><a href="">Deconnexion</a>
+                            <li><a href="<?= URL ?>profil.php">Profil</a>
+                            <li><a href="<?= URL ?>connexion.php?action=deconnexion">Deconnexion</a>
                         </ul>
                     </li>
                     <?php else:?>
 
-                    <li><a href="">panier</a></li>
+                    <li><a href="<?= URL ?>panier.php">Panier</a></li>
                     <li class="dropdown">
-					    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Membre <span class="caret"></span></a>
+					    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Membre <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="<?= URL ?>inscription.php">Inscription</a></li>
                             <li><a href="<?= URL ?>connexion.php">Connexion</a></li>
